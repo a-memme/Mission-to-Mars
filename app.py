@@ -1,5 +1,4 @@
 # Import dependencies 
-
 from flask import Flask, render_template, redirect, url_for
 from flask_pymongo import PyMongo
 import scraping
@@ -16,6 +15,7 @@ mongo = PyMongo(app)
 # Home page (i.e ("/"))
 # PyMongo to find the "mars" collection in our database 
 # return an HTML template using an index.html file 
+
 @app.route("/")
 def index():
    mars = mongo.db.mars.find_one()
@@ -30,6 +30,5 @@ def scrape():
    mars.update({}, mars_data, upsert=True)
    return redirect('/', code=302)
 
-# Tell app to run
-   if __name__ == "__main__":
-   app.run()
+if __name__ == "__main__":
+   app.run(debug=True)
