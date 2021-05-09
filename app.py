@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for
 from flask_pymongo import PyMongo
 import scraping
 
+
 # Setup flask 
 app = Flask(__name__)
 
